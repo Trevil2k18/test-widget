@@ -9,15 +9,16 @@ $this->registerJsFile(
 
 $script = <<< JS
     Fingerprint2.get(function(components) {
-        let murmur = Fingerprint2.x64hash128(components.map(function (pair) { return pair.value }).join(), 31)
+        let murmur = Fingerprint2.x64hash128(components.map(function (pair) { return pair.value }).join(), 31);
 
         $.ajax({
             url: '/fingerprints/check?fingerprint=' + murmur,
             success: function(data) {
                 console.log(data);
             },
-            error: function () {
-                console.error("ERROR");
+            error: function (jqXHR, exception) {
+                console.error(jqXHR);
+                console.error(exception);
             }
         });
         console.log("fingerprint hash", murmur)
