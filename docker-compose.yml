@@ -1,0 +1,15 @@
+version: '3.3'
+
+services:
+  mysql:
+    image: percona:latest
+    ports:
+    - "3306:3306"
+    volumes:
+    - ./database/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: prints
+      MYSQL_USER: finger
+      MYSQL_PASSWORD: print
+    restart: always
