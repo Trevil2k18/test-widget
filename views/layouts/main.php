@@ -23,6 +23,8 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
+<script async src="//stats.lptracker.ru/code/new/60074"></script>
+
 <?= FingerCatchWidget::widget() ?>
 
 <?php $this->endBody() ?>
